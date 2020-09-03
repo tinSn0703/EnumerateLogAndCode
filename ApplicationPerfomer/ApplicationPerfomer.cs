@@ -9,5 +9,14 @@ namespace EnumerateLogAndCode
 	/// </summary>
 	class ApplicationPerfomer
 	{
+		public void Set(ApplicationPerfomerOrder _order)
+		{
+
+		}
+
+		public ApplicationWriteData Perform(ApplicationReadData _input)
+		{
+			return new ApplicationWriteData();
+		}
 	}
 }

@@ -14,7 +14,10 @@ namespace EnumerateLogAndCode
 			return new ApplicationReaderOrder();
 		}
 
-
+		public ApplicationPerfomerOrder GetPerformerOrder()
+		{
+			return new ApplicationPerfomerOrder();
+		}
 
 		public ApplicationWriterOrder GetWriterOrder()
 		{
