@@ -5,9 +5,9 @@ using System.Text;
 namespace EnumerateLogAndCode
 {
 	/// <summary>ログ(1回)</summary>
-	public readonly struct LogTestOne
+	public readonly struct LogTextOne
 	{
-		public LogTestOne(in DateTime _Date, in List<string> _Log)
+		public LogTextOne(in DateTime _Date, in List<string> _Log)
 		{
 			this.Date= _Date;
 			this.Log = _Log;
@@ -21,7 +21,7 @@ namespace EnumerateLogAndCode
 	class LogText
 	{
 		private string _LogName;
-		private List<LogTestOne> _Text;
+		private List<LogTextOne> _Text;
 
 		public void Read()
 		{
@@ -29,6 +29,6 @@ namespace EnumerateLogAndCode
 		}
 
 		public string Name => _LogName;
-		public ref readonly List<LogTestOne> Text => ref _Text;
+		public ref readonly List<LogTextOne> Text => ref _Text;
 	}
 }

@@ -22,22 +22,27 @@ namespace EnumerateLogAndCode
 		public void Set(in string _FileName, in string _FileText)
 		{
 			if (string.IsNullOrEmpty(_FileName))
+			{ 
 				throw new ArgumentException(
-					$"'{nameof(CodeTextReaderFileText)}'\n'{nameof(_FileName)}' は null / 空 にはできません", 
+					$"'{nameof(CodeTextReaderFileText)}'\n'{nameof(_FileName)}' は null / 空 にはできません",
 					nameof(_FileName));
-
+			}
 			if (string.IsNullOrEmpty(_FileText))
+			{
 				throw new ArgumentException(
-					$"'{nameof(CodeTextReaderFileText)}'\n'{nameof(_FileText)}' は null / 空 にはできません", 
+					$"'{nameof(CodeTextReaderFileText)}'\n'{nameof(_FileText)}' は null / 空 にはできません",
 					nameof(_FileText));
+			}
 
 			this._FileName = _FileName;
 			this._FileText = _FileText;
 		}
 
-		public override (string _CodeName, List<CodeTestLine> _Text) Read()
+		public override (string _CodeName, List<CodeTextLine> _Text) Read()
 		{
-			var _Text = new List<CodeTestLine>();
+			var _Text = new List<CodeTextLine>();
+
+
 
 			throw new NotImplementedException();
 

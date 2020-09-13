@@ -9,7 +9,7 @@ namespace EnumerateLogAndCode
 	{
 		public abstract void Set();
 
-		public abstract (string _CodeName, List<CodeTestLine> _Text) Read();
+		public abstract (string _CodeName, List<CodeTextLine> _Text) Read();
 	}
 
 }

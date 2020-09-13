@@ -5,18 +5,18 @@ using System.Text;
 namespace EnumerateLogAndCode
 {
 	/// <summary>チェッカー検査コード(1行)</summary>
-	public readonly struct CodeTestLine
+	public readonly struct CodeTextLine
 	{
-		public CodeTestLine(in Int16 _CheckCodeLineNum, in Int16 _CheckCommand, in string _CheckCode, in string _Comment)
+		public CodeTextLine(in Int16 _CheckCodeLineNum, in Int16 _CheckCommand, in string _CheckCode, in string _Comment)
 		{
 			if (string.IsNullOrEmpty(_CheckCode))
 				throw new ArgumentException(
-					$"'{nameof(CodeTestLine)}'\n'{nameof(_CheckCode)}' は null / 空 にはできません", 
+					$"'{nameof(CodeTextLine)}'\n'{nameof(_CheckCode)}' は null / 空 にはできません", 
 					nameof(_CheckCode));
 
 			if (string.IsNullOrEmpty(_Comment))
 				throw new ArgumentException(
-					$"'{nameof(CodeTestLine)}'\n'{nameof(_Comment)}' は null / 空 にはできません", 
+					$"'{nameof(CodeTextLine)}'\n'{nameof(_Comment)}' は null / 空 にはできません", 
 					nameof(_Comment));
 
 			CheckCodeLineNum = _CheckCodeLineNum;
@@ -35,19 +35,21 @@ namespace EnumerateLogAndCode
 	class CodeText
 	{
 		private string _CodeName;
-		private List<CodeTestLine> _Text;
+		private List<CodeTextLine> _Text;
 
 		public CodeText(in CodeTextReader _Reader) => this.Read(_Reader);
 
 		public void Read(in CodeTextReader _Reader)
 		{
 			if (_Reader is null)
+			{
 				throw new ArgumentNullException(nameof(_Reader));
+			}
 
 			(_CodeName, _Text) = _Reader.Read();
 		}
 
 		public string Name => _CodeName;
-		public ref readonly List<CodeTestLine> Text => ref _Text;
+		public ref readonly List<CodeTextLine> Text => ref _Text;
 	}
 }
