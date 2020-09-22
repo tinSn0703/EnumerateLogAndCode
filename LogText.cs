@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EnumerateLogAndCode
 {
-	/// <summary>ログ(1回)</summary>
+	/// <summary>ログ(1回分)</summary>
 	public readonly struct LogTextOne
 	{
 		public LogTextOne(in DateTime _Date, in List<string> _Log)
@@ -20,15 +20,36 @@ namespace EnumerateLogAndCode
 	/// <summary>ログ</summary>
 	class LogText
 	{
-		private string _LogName;
-		private List<LogTextOne> _Text;
+		//------------------------------------------------------------//
+		//field
+		//------------------------------------------------------------//
 
-		public void Read()
+		private string _LogName;
+		private List<LogTextOne> _LogList;
+
+		//------------------------------------------------------------//
+		//public method
+		//------------------------------------------------------------//
+
+		/// <summary>_Readerを利用し、ログを読み込む</summary>
+		/// <param name="_Reader"></param>
+		public void Read(in LogTextReader _Reader)
 		{
-			_LogName = "";
+			if (_Reader is null)
+			{
+				throw new ArgumentNullException(nameof(_Reader));
+			}
+
+			(_LogName, _LogList) = _Reader.Read();
 		}
 
+		//------------------------------------------------------------//
+		//propaty
+		//------------------------------------------------------------//
+
 		public string Name => _LogName;
-		public ref readonly List<LogTextOne> Text => ref _Text;
+		public ref readonly List<LogTextOne> Log => ref _LogList;
+
+		//------------------------------------------------------------//
 	}
 }

@@ -35,7 +35,7 @@ namespace EnumerateLogAndCode
 	class CodeText
 	{
 		private string _CodeName;
-		private List<CodeTextLine> _Text;
+		private List<CodeTextLine> _Code;
 
 		public CodeText(in CodeTextReader _Reader) => this.Read(_Reader);
 
@@ -46,10 +46,10 @@ namespace EnumerateLogAndCode
 				throw new ArgumentNullException(nameof(_Reader));
 			}
 
-			(_CodeName, _Text) = _Reader.Read();
+			(_CodeName, _Code) = _Reader.Read();
 		}
 
 		public string Name => _CodeName;
-		public ref readonly List<CodeTextLine> Text => ref _Text;
+		public ref readonly List<CodeTextLine> Code => ref _Code;
 	}
 }

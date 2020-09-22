@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace EnumerateLogAndCode
 {
-	/// <summary>何らかの形式から検査コードを読み取る</summary>
+	/// <summary>何らかの形式から検査コードを読み取るオブジェクト</summary>
 	abstract class CodeTextReader
 	{
 		public abstract void Set();
