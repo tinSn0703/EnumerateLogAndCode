@@ -2,28 +2,26 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EnumerateLogAndCode
+namespace EnumerateLogAndCode.LogText
 {
-	public enum IndexLogTextReader
+	public enum ReaderIndex
 	{ TEXT_FILE, SELECT_DATE }
 
-	class LogTextReaderFactory
+	class ReaderFactory
 	{
-		public LogTextReaderFactory()	{}
+		public ReaderFactory()	{}
 
-		public LogTextReader Create(in IndexLogTextReader _Index)
+		public Reader Create(in ReaderIndex _Index)
 		{
 			switch (_Index)
 			{
-				case IndexLogTextReader.TEXT_FILE:
-					return new LogTextReaderTextFile();
-				case IndexLogTextReader.SELECT_DATE:
-					return new LogTextReaderSelectDate();
+				case ReaderIndex.TEXT_FILE:
+					return new ReaderTextFile();
+				case ReaderIndex.SELECT_DATE:
+					return new ReaderSelectDate();
 				default:
-					throw new ArgumentException(
-						$"'{nameof(LogTextReaderFactory)}'\n'" +
-						$"{nameof(_Index)}' : の値が不正です",
-						nameof(_Index));
+					throw new ArgumentException($"'{nameof(ReaderFactory)}'\n'" +
+						$"{nameof(_Index)}' : の値が不正です", nameof(_Index));
 			}
 		}
 	}

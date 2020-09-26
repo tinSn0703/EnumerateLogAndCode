@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EnumerateLogAndCode
+namespace EnumerateLogAndCode.LogText
 {
 	/// <summary>ログ内から、指定した時間のログのみを取り出す</summary>
-	class LogTextReaderSelectDate : LogTextReader
+	class ReaderSelectDate : Reader
 	{
 		private DateTime _HeadDate;
 		private DateTime _TailDate;
 		private LogText _LogText;
 
-		public LogTextReaderSelectDate()
+		public ReaderSelectDate()
 		{
 
 		}
 
-		public LogTextReaderSelectDate(in LogText _LogText, in DateTime _HeadDate, in DateTime _TailDate)
+		public ReaderSelectDate(in LogText _LogText, in DateTime _HeadDate, in DateTime _TailDate)
 		{
 			Set(_LogText, _HeadDate, _TailDate);
 		}

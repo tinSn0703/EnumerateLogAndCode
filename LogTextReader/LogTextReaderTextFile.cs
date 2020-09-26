@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EnumerateLogAndCode
+namespace EnumerateLogAndCode.LogText
 {
 	/// <summary>テキストファイルに記載された形式からログを取り出す。改行はCRLFの想定。</summary>
-	class LogTextReaderTextFile : LogTextReader
+	class ReaderTextFile : Reader
 	{
 		private string _FileName;
 
-		public LogTextReaderTextFile()	{}
+		public ReaderTextFile()	{}
 
-		public LogTextReaderTextFile(in string _FileName)
+		public ReaderTextFile(in string _FileName)
 		{
 			Set(_FileName);
 		}
